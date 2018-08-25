@@ -27,41 +27,41 @@ def get_filters():
     while city not in CITY_DATA.keys():
         print("\nWelcome to this program. Please choose your city:")
         print("\n1. Chicago 2. New York City 3. Washington")
-        print("\nAccepted input:\nFull name of city in lowercase (e.g. chicago).\nFull name in title case (e.g. Chicago).")
+        print("\nAccepted input:\nFull name of city; not case sensitive (e.g. chicago or CHICAGO).\nFull name in title case (e.g. Chicago).")
         city = input().lower()
         if city not in CITY_DATA.keys():
             print("\nPlease check your input, it doesn\'t appear to be conforming to any of the accepted input formats.")
             print("\nRestarting...")
 
-    print(f"\nYou have chosen {city} as your city.")
+    print(f"\nYou have chosen {city.title()} as your city.")
 
     MONTH_DATA = {'january': 1, 'february': 2, 'march': 3, 'april': 4, 'may': 5, 'june': 6, 'all': 7}
     month = ''
     while month not in MONTH_DATA.keys():
         print("\nPlease enter the month, between January to June, for which you're seeking data:")
-        print("\nAccepted input:\nFull month name in lower case(e.g. january).\nFull month name in title case (e.g. April).")
-        print("\n(You may also opt to view data for all months, please type 'all' or 'All' for that.)")
+        print("\nAccepted input:\nFull month name; not case sensitive (e.g. january or JANUARY).\nFull month name in title case (e.g. April).")
+        print("\n(You may also opt to view data for all months, please type 'all' or 'All' or 'ALL' for that.)")
         month = input().lower()
 
         if month not in MONTH_DATA.keys():
             print("\nInvalid input. Please try again in the accepted input format.")
             print("\nRestarting...")
 
-    print(f"\nYou have chosen {month} as your month.")
+    print(f"\nYou have chosen {month.title()} as your month.")
 
     DAY_LIST = ['all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
     day = ''
     while day not in DAY_LIST:
         print("\nPlease enter a day in the week of your choice for which you're seeking the data:")
-        print("\nAccepted input:\nDay name in lowercase (e.g. monday).\nDay name in title case (e.g. Monday).")
+        print("\nAccepted input:\nDay name; not case sensitive (e.g. monday or MONDAY).\nDay name in title case (e.g. Monday).")
         print("\n(You can also put 'all' or 'All' to view data for all days in a week.)")
         day = input().lower()
         if day not in DAY_LIST:
             print("\nInvalid input. Please try again in one of the accepted input formats.")
             print("\nRestarting...")
 
-    print(f"\nYou have chosen {day} as your day.")
-    print(f"\nYou have chosen to view data for city: {city}, month/s: {month} and day/s: {day}.")
+    print(f"\nYou have chosen {day.title()} as your day.")
+    print(f"\nYou have chosen to view data for city: {city.upper()}, month/s: {month.upper()} and day/s: {day.upper()}.")
     print('-'*100)
     return city, month, day
 
@@ -78,6 +78,7 @@ def load_data(city, month, day):
         df - Pandas DataFrame containing city data filtered by month and day
     """
     #Load data for city
+    print("\nLoading data...")
     df = pd.read_csv(CITY_DATA[city])
 
     #Convert the Start Time column to datetime
@@ -110,11 +111,9 @@ def time_stats(df):
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
-
     popular_month = df['month'].mode()[0]
 
     print('Most Popular Month (1 = January,...,6 = June):', popular_month)
-
 
     popular_day = df['day_of_week'].mode()[0]
 
@@ -123,12 +122,11 @@ def time_stats(df):
     # Extract hour from the Start Time column to create an hour column
     df['hour'] = df['Start Time'].dt.hour
 
-    # Find the most popular hour
     popular_hour = df['hour'].mode()[0]
 
     print('Most Popular Start Hour:', popular_hour)
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print(f"\nThis took {(time.time() - start_time)} seconds.")
     print('-'*100)
 
 
@@ -151,7 +149,7 @@ def station_stats(df):
 
     print(f"The most frequent combination of trips are from {combo}.")
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print(f"\nThis took {(time.time() - start_time)} seconds.")
     print('-'*100)
 
 
@@ -174,7 +172,7 @@ def trip_duration_stats(df):
     else:
         print(f"\nThe average trip duration is {mins} minutes and {sec} seconds.")
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print(f"\nThis took {(time.time() - start_time)} seconds.")
     print('-'*100)
 
 
@@ -201,7 +199,7 @@ def user_stats(df):
     except:
         print("There are no birth year details in this file.")
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print(f"\nThis took {(time.time() - start_time)} seconds.")
     print('-'*100)
 
 
@@ -212,8 +210,7 @@ def display_data(df):
     while rdata not in ['yes', 'no', 'Yes', 'No']:
         print("\nDo you wish to view the raw data?")
         print("Accepted responses:\nYes or yes\nNo or no")
-        rdata = input()
-        rdata = rdata.lower()
+        rdata = input().lower()
         if rdata == "yes":
             print(df.head())
         elif rdata not in ['yes', 'no']:
@@ -221,11 +218,10 @@ def display_data(df):
             print("Input does not seem to match any of the accepted responses.")
             print("\nRestarting...\n")
 
-    while True:
+    while rdata == 'yes':
         print("Do you wish to view more raw data?")
         counter += 5
-        rdata = input()
-        rdata = rdata.lower()
+        rdata = input().lower()
         if rdata == "yes":
              print(df[counter:counter+5])
         elif rdata != "yes":
