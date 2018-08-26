@@ -75,7 +75,7 @@ def get_filters():
 
     print(f"\nYou have chosen {day.title()} as your day.")
     print(f"\nYou have chosen to view data for city: {city.upper()}, month/s: {month.upper()} and day/s: {day.upper()}.")
-    print('-'*100)
+    print('-'*80)
     #Returning the city, month and day selections
     return city, month, day
 
@@ -156,7 +156,7 @@ def time_stats(df):
     #You will find this in all the functions involving any calculation
     #throughout this program
     print(f"\nThis took {(time.time() - start_time)} seconds.")
-    print('-'*100)
+    print('-'*80)
 
 #Function to calculate station related statistics
 def station_stats(df):
@@ -192,7 +192,7 @@ def station_stats(df):
     print(f"The most frequent combination of trips are from {combo}.")
 
     print(f"\nThis took {(time.time() - start_time)} seconds.")
-    print('-'*100)
+    print('-'*80)
 
 #Function for trip duration related statistics
 def trip_duration_stats(df):
@@ -228,7 +228,7 @@ def trip_duration_stats(df):
         print(f"\nThe average trip duration is {mins} minutes and {sec} seconds.")
 
     print(f"\nThis took {(time.time() - start_time)} seconds.")
-    print('-'*100)
+    print('-'*80)
 
 #Function to calculate user statistics
 def user_stats(df):
@@ -271,7 +271,7 @@ def user_stats(df):
         print("There are no birth year details in this file.")
 
     print(f"\nThis took {(time.time() - start_time)} seconds.")
-    print('-'*100)
+    print('-'*80)
 
 #Function to display the data frame itself as per user request
 def display_data(df):
@@ -311,6 +311,8 @@ def display_data(df):
         elif rdata != "yes":
              break
 
+    print('-'*80)
+    
 #Main function to call all the previous functions
 def main():
     while True:
