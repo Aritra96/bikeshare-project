@@ -8,10 +8,10 @@ import numpy as np
 #Credits: Final credit goes to my college classes, econometrics courses and professors and familiarity with R programming.
 
 #Creating a dictionary containing the data sources for the three cities
-CITY_DATA = { 'chicago': 'chicago.csv', 'Chicago': 'chicago.csv',
-             'New York City': 'new_york_city.csv', 'New york city': 'new_york_city.csv',
-              'new york city': 'new_york_city.csv', 'washington': 'washington.csv',
-             'Washington': 'washington.csv' }
+CITY_DATA = { 'chicago': 'data/chicago.csv', 'Chicago': 'data/chicago.csv',
+             'New York City': 'data/new_york_city.csv', 'New york city': 'data/new_york_city.csv',
+              'new york city': 'data/new_york_city.csv', 'washington': 'data/washington.csv',
+             'Washington': 'data/washington.csv' }
 
 #Function to figure out the filtering requirements of the user
 def get_filters():
