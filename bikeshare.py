@@ -2,11 +2,6 @@ import time
 import pandas as pd
 import numpy as np
 
-#Credits: Pandas Documentation was SUPER helpful when dealing with combining two columsn and applying functions like mode.
-#Credits: Additionally, github repos of xhlow and philribbens were helpful in exploring different structures to the same problem statement.
-#Credits: Udacity's 3 Problems in this project, namely user type, load data and popular hour, were immensely helpful.
-#Credits: Final credit goes to my college classes, econometrics courses and professors and familiarity with R programming.
-
 #Creating a dictionary containing the data sources for the three cities
 CITY_DATA = { 'chicago': 'data/chicago.csv', 'Chicago': 'data/chicago.csv',
              'New York City': 'data/new_york_city.csv', 'New york city': 'data/new_york_city.csv',
@@ -49,7 +44,7 @@ def get_filters():
     MONTH_DATA = {'january': 1, 'february': 2, 'march': 3, 'april': 4, 'may': 5, 'june': 6, 'all': 7}
     month = ''
     while month not in MONTH_DATA.keys():
-        print("\nPlease enter the month, between January to June, for which you're seeking data:")
+        print("\nPlease enter the month, between January to June, for which you're seeking the data:")
         print("\nAccepted input:\nFull month name; not case sensitive (e.g. january or JANUARY).\nFull month name in title case (e.g. April).")
         print("\n(You may also opt to view data for all months, please type 'all' or 'All' or 'ALL' for that.)")
         month = input().lower()
@@ -137,12 +132,12 @@ def time_stats(df):
     #Uses mode method to find the most popular month
     popular_month = df['month'].mode()[0]
 
-    print('Most Popular Month (1 = January,...,6 = June):', popular_month)
+    print(f"Most Popular Month (1 = January,...,6 = June): {popular_month}")
 
     #Uses mode method to find the most popular day
     popular_day = df['day_of_week'].mode()[0]
 
-    print('Most Popular Day:', popular_day)
+    print(f"\nMost Popular Day: {popular_day}")
 
     #Extract hour from the Start Time column to create an hour column
     df['hour'] = df['Start Time'].dt.hour
@@ -150,7 +145,7 @@ def time_stats(df):
     #Uses mode method to find the most popular hour
     popular_hour = df['hour'].mode()[0]
 
-    print('Most Popular Start Hour:', popular_hour)
+    print(f"\nMost Popular Start Hour: {popular_hour}")
 
     #Prints the time taken to perform the calculation
     #You will find this in all the functions involving any calculation
@@ -180,7 +175,7 @@ def station_stats(df):
     #Uses mode method to find the most common end station
     common_end_station = df['End Station'].mode()[0]
 
-    print(f"The most commonly used end station: {common_end_station}")
+    print(f"\nThe most commonly used end station: {common_end_station}")
 
     #Uses str.cat to combine two columsn in the df
     #Assigns the result to a new column 'Start To End'
@@ -189,7 +184,7 @@ def station_stats(df):
     df['Start To End'] = df['Start Station'].str.cat(df['End Station'], sep=' to ')
     combo = df['Start To End'].mode()[0]
 
-    print(f"The most frequent combination of trips are from {combo}.")
+    print(f"\nThe most frequent combination of trips are from {combo}.")
 
     print(f"\nThis took {(time.time() - start_time)} seconds.")
     print('-'*80)
@@ -266,7 +261,7 @@ def user_stats(df):
         earliest = int(df['Birth Year'].min())
         recent = int(df['Birth Year'].max())
         common_year = int(df['Birth Year'].mode()[0])
-        print(f"\nThe earliest year of birth: {earliest}\nThe most recent year of birth: {recent}\nThe most common year of birth:       {common_year}")
+        print(f"\nThe earliest year of birth: {earliest}\n\nThe most recent year of birth: {recent}\n\nThe most common year of birth: {common_year}")
     except:
         print("There are no birth year details in this file.")
 
@@ -290,7 +285,7 @@ def display_data(df):
     counter = 0
     while rdata not in BIN_RESPONSE_LIST:
         print("\nDo you wish to view the raw data?")
-        print("Accepted responses:\nYes or yes\nNo or no")
+        print("\nAccepted responses:\nYes or yes\nNo or no")
         rdata = input().lower()
         #the raw data from the df is displayed if user opts for it
         if rdata == "yes":
@@ -312,7 +307,7 @@ def display_data(df):
              break
 
     print('-'*80)
-    
+
 #Main function to call all the previous functions
 def main():
     while True:
