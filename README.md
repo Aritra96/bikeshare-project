@@ -1,5 +1,5 @@
 # Basic Data Exploration with pandas on Bikeshare Data
-_Basic Udacity project using pandas lib in Python for their bikeshare data exploration._
+_Basic Udacity project using pandas library in Python for their bikeshare data exploration._
 
 # Project Overview:
 
@@ -46,10 +46,10 @@ Finally, the user is prompted with the choice of restarting the program or not.
 
 # Built with:
 
-* Python 3.6.6 - The language used to develop this.
-* pandas - One of the libraries used for this.
-* numpy - One of the libraries used for this.
-* time - One of the libraries used for this.
+* [Python 3.6.6](https://www.python.org/) - The language used to develop this.
+* [pandas](https://pandas.pydata.org/) - One of the libraries used for this.
+* [numpy](http://www.numpy.org/) - One of the libraries used for this.
+* [time](https://docs.python.org/2/library/time.html) - One of the libraries used for this.
 
 # Author:
 
