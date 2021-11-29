@@ -1,5 +1,5 @@
 # Basic Data Exploration with pandas on Bikeshare Data
-_Basic Udacity project using pandas library in Python for their bikeshare data exploration._
+_A Python project using pandas to explore bikeshare data._
 
 # Project Overview:
 
