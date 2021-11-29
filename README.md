@@ -1,15 +1,15 @@
 # Basic Data Exploration with pandas on Bikeshare Data
 _A Python project using pandas to explore bikeshare data._
 
-# Project Overview:
+# Project Overview
 
 This project focuses on pandas library usage and simple statistics methods to perform descriptive analysis on the bikeshare data from three major U.S. cities - Chicago, Washington, and New York City - to display information such as most popular days or most common stations.
 
-### Running the program:
+### Running the program
 
 You can input 'python bikeshare.py' on your terminal to run this program. I use Anaconda's command prompt on a Windows 10 machine.
 
-### Program Details:
+### Program Details
 
 The program takes user input for the city (e.g. Chicago), month for which the user wants to view data (e.g. January; also includes an 'all' option), and day for which the user wants to view data (e.g. Monday; also includes an 'all' option).
 
@@ -31,12 +31,12 @@ Upon receiving the user input, it goes ahead and asks the user if they want to v
 
 Finally, the user is prompted with the choice of restarting the program or not.
 
-# Requirements:
+# Requirements
 
 * Language: Python 3.6 or above
 * Libraries: pandas, numpy, time
 
-# Project Data:
+# Project Data
 
 * chicago.csv - Stored in the data folder, the chicago.csv file is the dataset containing all bikeshare information for the city of Chicago provided by Udacity.
 
@@ -44,18 +44,18 @@ Finally, the user is prompted with the choice of restarting the program or not.
 
 * washington.csv - Dataset containing all bikeshare information for the city of Washington provided by Udacity. Note: This does not include the 'Gender' or 'Birth Year' data.
 
-# Built with:
+# Built with
 
 * [Python 3.6.6](https://www.python.org/) - The language used to develop this.
 * [pandas](https://pandas.pydata.org/) - One of the libraries used for this.
 * [numpy](http://www.numpy.org/) - One of the libraries used for this.
 * [time](https://docs.python.org/2/library/time.html) - One of the libraries used for this.
 
-# Author:
+# Author
 
  * [Aritra Chattaraj](https://github.com/aritra96) - Sole author for this program. Mentioned all the help received in 'Acknowledgements' section.
   
-# Acknowledgements: 
+# Acknowledgements
 
 * [xhlow](https://github.com/xhlow) - xhlow's repository helped with understanding the structure and details of certain functions.
 * [philribbens](https://github.com/philribbens) - philribben's repository also added to better understanding of the structure for this project.
